@@ -11,17 +11,20 @@ themeBtn.addEventListener('click', function() {
     }
 });
 
+
 const toggleSectionBtn = document.getElementById('toggle-section-btn');
 const omnieSekcja = document.getElementById('omnie-sekcja');
 
 toggleSectionBtn.addEventListener('click', function() {
     if (omnieSekcja.style.display !== 'none') {
-        omnieSekcja.style.display = 'none';
-        toggleSectionBtn.textContent = 'Pokaż O mnie';
+        omnieSekcja.style.display = 'none'; 
+        toggleSectionBtn.textContent = 'Pokaż O mnie'; 
     } else {
-        omnieSekcja.style.display = 'block';
+        omnieSekcja.style.display = 'block'; 
         toggleSectionBtn.textContent = 'Ukryj O mnie';
     }
+});
+
 const kontaktForm = document.getElementById('kontakt-form');
 
 kontaktForm.addEventListener('submit', function(e) {
@@ -39,8 +42,8 @@ kontaktForm.addEventListener('submit', function(e) {
     const email = document.getElementById('email').value.trim();
     const wiadomosc = document.getElementById('wiadomosc').value.trim();
 
-    const hasNumber = /\d/;
-    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const hasNumber = /\d/; 
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
 
     if (!imie) {
         document.getElementById('imie-error').textContent = 'Pole Imię jest wymagane.';
@@ -73,6 +76,6 @@ kontaktForm.addEventListener('submit', function(e) {
 
     if (isValid) {
         alert('Formularz uzupełniony poprawnie! (Dane nie wysłano - brak backendu).');
-        kontaktForm.reset();
+        kontaktForm.reset(); 
     }
 });
