@@ -78,4 +78,29 @@ kontaktForm.addEventListener('submit', function(e) {
         alert('Formularz uzupełniony poprawnie! (Dane nie wysłano - brak backendu).');
         kontaktForm.reset(); 
     }
+    fetch('data.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Błąd ładowania danych JSON');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const listaUmiejetnosci = document.getElementById('lista-umiejetnosci');
+        data.umiejetnosci.forEach(umiejetnosc => {
+            const li = document.createElement('li');
+            li.textContent = umiejetnosc;
+            listaUmiejetnosci.appendChild(li);
+        });
+
+        const listaProjektow = document.getElementById('lista-projektow');
+        data.projekty.forEach(projekt => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${projekt.nazwa}:</strong> ${projekt.opis}`;
+            listaProjektow.appendChild(li);
+        });
+    })
+    .catch(error => {
+        console.error('Wystąpił błąd:', error);
+
 });
