@@ -1,3 +1,4 @@
+
 const themeBtn = document.getElementById('theme-btn');
 const themeStyle = document.getElementById('theme-style');
 
@@ -24,6 +25,7 @@ toggleSectionBtn.addEventListener('click', function() {
         toggleSectionBtn.textContent = 'Ukryj O mnie';
     }
 });
+
 
 const kontaktForm = document.getElementById('kontakt-form');
 
@@ -79,14 +81,36 @@ kontaktForm.addEventListener('submit', function(e) {
     }
 });
 
+
 fetch('data.json')
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Błąd ładowania danych JSON');
-        }
+        if (!response.ok) throw new Error('Błąd ładowania danych JSON');
         return response.json();
     })
     .then(data => {
+
+        document.getElementById('cv-imie-nazwisko').textContent = data.naglowek.imieNazwisko;
+        document.getElementById('cv-indeks').textContent = data.naglowek.indeks;
+
+
+        const emailEl = document.getElementById('cv-email');
+        emailEl.textContent = data.kontakt.email;
+        emailEl.href = `mailto:${data.kontakt.email}`;
+
+        const telEl = document.getElementById('cv-telefon');
+        telEl.textContent = data.kontakt.telefon;
+
+        telEl.href = `tel:${data.kontakt.telefon.replace(/\s/g, '')}`;
+
+        document.getElementById('cv-miasto').textContent = `Miasto: ${data.kontakt.miasto}`;
+        document.getElementById('cv-github').href = data.kontakt.github;
+        document.getElementById('cv-linkedin').href = data.kontakt.linkedin;
+
+        const imgEl = document.getElementById('cv-zdjecie');
+        imgEl.src = data.oMnie.zdjecie;
+        imgEl.alt = data.oMnie.alt;
+        document.getElementById('cv-omnie-tekst').textContent = data.oMnie.tekst;
+
         const listaUmiejetnosci = document.getElementById('lista-umiejetnosci');
         data.umiejetnosci.forEach(umiejetnosc => {
             const li = document.createElement('li');
@@ -94,13 +118,26 @@ fetch('data.json')
             listaUmiejetnosci.appendChild(li);
         });
 
+        const doswiadczenieKontener = document.getElementById('doswiadczenie-kontener');
+        data.doswiadczenie.forEach(d => {
+            const article = document.createElement('article');
+            article.innerHTML = `<h3>${d.stanowisko}</h3><p>${d.opis}</p>`;
+            doswiadczenieKontener.appendChild(article);
+        });
+
+        const edu = data.edukacja;
+        document.getElementById('edukacja-kontener').innerHTML = 
+            `<strong>${edu.uczelnia}</strong><br>Kierunek: ${edu.kierunek}<br>Numer albumu: ${edu.indeks}<br>Rok studiów: ${edu.rok}`;
+
         const listaProjektow = document.getElementById('lista-projektow');
         data.projekty.forEach(projekt => {
             const li = document.createElement('li');
             li.innerHTML = `<strong>${projekt.nazwa}:</strong> ${projekt.opis}`;
             listaProjektow.appendChild(li);
         });
+
+        document.getElementById('cv-stopka').textContent = data.stopka;
     })
     .catch(error => {
-        console.error('Wystąpił błąd:', error);
+        console.error('Wystąpił błąd podczas pobierania JSON:', error);
     });
