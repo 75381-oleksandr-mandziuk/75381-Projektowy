@@ -17,10 +17,10 @@ const omnieSekcja = document.getElementById('omnie-sekcja');
 
 toggleSectionBtn.addEventListener('click', function() {
     if (omnieSekcja.style.display !== 'none') {
-        omnieSekcja.style.display = 'none'; 
-        toggleSectionBtn.textContent = 'Pokaż O mnie'; 
+        omnieSekcja.style.display = 'none';
+        toggleSectionBtn.textContent = 'Pokaż O mnie';
     } else {
-        omnieSekcja.style.display = 'block'; 
+        omnieSekcja.style.display = 'block';
         toggleSectionBtn.textContent = 'Ukryj O mnie';
     }
 });
@@ -29,7 +29,6 @@ const kontaktForm = document.getElementById('kontakt-form');
 
 kontaktForm.addEventListener('submit', function(e) {
     e.preventDefault(); 
-    
     let isValid = true;
 
     document.getElementById('imie-error').textContent = '';
@@ -78,7 +77,9 @@ kontaktForm.addEventListener('submit', function(e) {
         alert('Formularz uzupełniony poprawnie! (Dane nie wysłano - brak backendu).');
         kontaktForm.reset(); 
     }
-    fetch('data.json')
+});
+
+fetch('data.json')
     .then(response => {
         if (!response.ok) {
             throw new Error('Błąd ładowania danych JSON');
@@ -102,5 +103,4 @@ kontaktForm.addEventListener('submit', function(e) {
     })
     .catch(error => {
         console.error('Wystąpił błąd:', error);
-
-});
+    });
