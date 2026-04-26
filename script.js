@@ -12,7 +12,6 @@ themeBtn.addEventListener('click', function() {
     }
 });
 
-
 const toggleSectionBtn = document.getElementById('toggle-section-btn');
 const omnieSekcja = document.getElementById('omnie-sekcja');
 
