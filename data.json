@@ -1,0 +1,19 @@
+{
+  "umiejetnosci": [
+    "Podstawy programowania w języku C# (aplikacje konsolowe)",
+    "Znajomość sprzętu komputerowego i peryferiów gamingowych",
+    "Podstawy relacyjnych baz danych (SQL, diagramy)",
+    "Języki: ukraiński (ojczysty), polski (dobry), angielski",
+    "Praca w zespole i łatwość w nawiązywaniu kontaktów"
+  ],
+  "projekty": [
+    {
+      "nazwa": "Symulator bankomatu (C#)",
+      "opis": "Aplikacja konsolowa symulująca podstawowe operacje bankowe, takie jak wpłata, wypłata i sprawdzanie salda, z wykorzystaniem instrukcji warunkowych i pętli."
+    },
+    {
+      "nazwa": "Symulator automatu z przekąskami (C#)",
+      "opis": "Program odzwierciedlający działanie maszyny vendingowej, w tym wybór produktu, przyjmowanie \"monet\" i wydawanie reszty."
+    }
+  ]
+}
