@@ -9,8 +9,8 @@
 <body>
 
     <header>
-        <h1>Oleksandr Mandziuk - CV</h1>
-        <p>Nr albumu: 75381</p>
+        <h1 id="cv-imie-nazwisko"></h1>
+        <p id="cv-indeks"></p>
         
         <div style="margin-top: 15px;">
             <button id="theme-btn" style="padding: 10px; cursor: pointer; margin-right: 10px;">Zmień motyw (Zielony)</button>
@@ -21,19 +21,19 @@
     <main>
         <section>
             <h2>Kontakt</h2>
-            <p>E-mail: <a href="mailto:omandzi1@stu.vistula.edu.pl">omandzi1@stu.vistula.edu.pl</a></p>
-            <p>Telefon: <a href="tel:+48578566228">+48 578 566 228</a></p>
-            <p>Miasto: Warszawa</p>
+            <p>E-mail: <a id="cv-email" href=""></a></p>
+            <p>Telefon: <a id="cv-telefon" href=""></a></p>
+            <p id="cv-miasto"></p>
             <p>
-                <a href="https://github.com/75381-oleksandr-mandziuk" target="_blank" rel="noopener noreferrer">Mój GitHub</a> | 
-                <a href="https://www.linkedin.com/in/oleksandr-mandziuk-185b4838b/" target="_blank" rel="noopener noreferrer">Mój LinkedIn</a>
+                <a id="cv-github" href="" target="_blank" rel="noopener noreferrer">Mój GitHub</a> | 
+                <a id="cv-linkedin" href="" target="_blank" rel="noopener noreferrer">Mój LinkedIn</a>
             </p>
         </section>
 
         <section id="omnie-sekcja">
             <h2>O mnie</h2>
-            <img src="moje_zdjecie.jpg" alt="Zdjęcie profilowe - Oleksandr Mandziuk">
-            <p>Mam 17 lat i jestem studentem pierwszego roku informatyki w Warszawie. Interesuję się programowaniem, sprzętem komputerowym i gamingiem. Szybko się uczę i w przyszłości planuję założyć własny biznes w branży IT. Obecnie skupiam się na nauce logiki programowania i tworzeniu własnych projektów.</p>
+            <img id="cv-zdjecie" src="" alt="">
+            <p id="cv-omnie-tekst"></p>
         </section>
 
         <section>
@@ -43,29 +43,19 @@
 
         <section>
             <h2>Doświadczenie</h2>
-            <article>
-                <h3>Kelner</h3>
-                <p>Warszawa. Obsługa klientów w dynamicznym środowisku, praca pod presją czasu oraz dbanie o pozytywny wizerunek lokalu.</p>
-            </article>
-            <article>
-                <h3>Wolontariusz</h3>
-                <p>Aktywny udział w akcjach wolontariackich. Pomoc w organizacji wydarzeń, wsparcie logistyczne oraz praca w grupie nad wspólnym celem.</p>
-            </article>
+            <div id="doswiadczenie-kontener"></div>
         </section>
 
         <section>
             <h2>Edukacja</h2>
-            <p><strong>Vistula University (Akademia Finansów i Biznesu Vistula)</strong><br>
-            Kierunek: Informatyka<br>
-            Numer albumu: 75381<br>
-            Rok studiów: 1. rok (2. semestr)</p>
+            <p id="edukacja-kontener"></p>
         </section>
 
         <section>
             <h2>Projekty</h2>
             <ul id="lista-projektow"></ul>
         </section>
-        
+
         <section id="kontakt-formularz-sekcja">
             <h2>Napisz do mnie</h2>
             <form id="kontakt-form">
@@ -97,10 +87,9 @@
             </form>
         </section>
     </main>
-    </main>
 
     <footer>
-        <p>CV stworzone na zaliczenie laboratorium. 2026 | Indeks: 75381</p>
+        <p id="cv-stopka"></p>
     </footer>
 
     <script src="script.js"></script>
